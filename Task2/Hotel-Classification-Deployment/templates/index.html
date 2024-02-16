@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2-Seif Yasser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="shortcut icon" href="cellula.png" type="image/x-icon"> <!--tab logo-->
+</head>
+
+<body>
+    <div class="login">
+        <h1 class="text-center">Task2- Seif Yasser</h1>
+        <h3 class="text-center">Hotel Booking Classification Deployment </h3>
+        <h5 class="text-center">
+            {{ prediction_text }}
+        </h5>
+        <br><br>
+        <!-- Main Input For Receiving Data to the model -->
+        <form action="{{ url_for('predict')}}" method="post">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 articles">
+                <!--Number of Adults-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Number of Adults</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Number_Of_Adults" placeholder="Number of Adults"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Number of Children-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Number of Children</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Number_Of_Children" placeholder="Number of Children"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Number of Weekend Nights-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Number of Weekend Nights</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Number_Of_Weekend_Nights" placeholder="Number of Weekend Nights"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Number of Week Nights-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Number of Week Nights</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Number_Of_Week_Nights" placeholder="Number of Week Nights"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Type of the meal-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Type of Meal</h5><!--product price-->
+                            <br>
+                            <div class="btn-group">
+                                <select
+                                    class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                    name="Type_Of_Meal" id="Type_Of_Meal">
+                                    <option value="0">Not Selected</option>
+                                    <option value="1">Meal 1</option>
+                                    <option value="2">Meal 2</option>
+                                    <option value="3">Meal 3</option>
+                                    <option value="4">Meal 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Car Parking Space-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Car Parking Space</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Car_Parking_Space" placeholder="Car Parking Space"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Room Type-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Room Type</h5><!--product price-->
+                            <br>
+                            <div class="btn-group">
+                                <select
+                                    class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                    name="Room_Type" id="Room_Type">
+                                    <option value="0">Room 1</option>
+                                    <option value="1">Room 2</option>
+                                    <option value="2">Room 3</option>
+                                    <option value="3">Room 4</option>
+                                    <option value="4">Room 5</option>
+                                    <option value="5">Room 6</option>
+                                    <option value="6">Room 7</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Lead Time-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Lead Time</h5><!--product price-->
+                            <br>
+                            <input type="text" name="lead time" placeholder="Lead Time" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Average Price-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Average Price</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Average_Price" placeholder="Average Price" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Special Request-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Special Requests</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Special_Requests" placeholder="Special Requests"
+                                required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Aviation Segment -->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Aviation Segment</h5>
+                            <br>
+                            <select class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                name="Market_Type_Aviation" id="Market_Type_Aviation">
+                                Aviation
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Complementary Segment -->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Complementary Segment</h5>
+                            <br>
+                            <select class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                name="Market_Type_Complementary" id="Market_Type_Complementary">
+                                Complementary
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Corporate Segment -->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Corporate Segment</h5>
+                            <br>
+                            <select class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                name="Market_Type_Corporate" id="Market_Type_Corporate">
+                                Corporate
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offline Segment -->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Offline Segment</h5>
+                            <br>
+                            <select class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                name="Market_Type_Offline" id="Market_Type_Offline">
+                                Offline
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Online Segment -->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Online Segment</h5>
+                            <br>
+                            <select class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                name="Market_Type_Online" id="Market_Type_Online">
+                                Online
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Year-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Year</h5><!--product price-->
+                            <br>
+                            <input type="text" name="Year" placeholder="Year" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <!--Month-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Month</h5><!--product price-->
+                            <br>
+                            <div class="btn-group">
+                                <select
+                                    class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                    name="Month" id="Month">
+                                    <option value="1">Jan</option>
+                                    <option value="2">Feb</option>
+                                    <option value="3">Mar</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">Jun</option>
+                                    <option value="7">Jul</option>
+                                    <option value="8">Aug</option>
+                                    <option value="9">Sep</option>
+                                    <option value="10">Oct</option>
+                                    <option value="11">Nov</option>
+                                    <option value="12">Dec</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Day-->
+                <div class="col">
+                    <div class="card text-center align-items-center box h-100">
+                        <div class="card-body content">
+                            <h5 class="card-title">Day</h5><!--product price-->
+                            <br>
+                            <div class="btn-group">
+                                <select
+                                    class="dropdown-menu-end dropdown-menu-lg-start btn btn-secondary dropdown-toggl"
+                                    name="Day" id="Day">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary btn-block btn-large text-center row">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
