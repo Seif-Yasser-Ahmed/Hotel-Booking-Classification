@@ -1,5 +1,5 @@
 # Hotel-Booking-Classification
-A Machine Learning project for my internship at Cellula Technologies <br>
+Machine Learning project for internship at Cellula Technologies <br>
 ## Consists of 2 main Tasks:
 > - **Task1:**
 >   - Exploratory Data Analysis on Dataset (EDA)
